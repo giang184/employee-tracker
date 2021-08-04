@@ -1,0 +1,7 @@
+<h1>Edit employee:</h1>
+
+<%= form_for [@division, @employee] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <p><%= f.submit %></p>
+<% end %>
