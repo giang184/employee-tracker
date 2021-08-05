@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      redirect_to projects_path
+      redirect_to divisions_path
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to projects_path
+    redirect_to divisions_path
   end
 
   private
