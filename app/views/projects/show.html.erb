@@ -6,3 +6,16 @@
                                        :method => "delete"} %></p>
 
 <p><%= link_to "Return to homepage", divisions_path %></p>
+
+
+<h1>Employees currently involved on this project:</h1>
+
+  <% if @project.employee_ids.any? %>
+    <ul>
+      <% @project.employee_ids.each do |employee_id| %>
+        <li><%= link_to Employee.find(employee_id).name, employee_path(employee_id) %></li>
+      <% end %>
+    </ul>
+    <% else %>
+      <p>There are no employee involved yet.</p>
+    <% end %>

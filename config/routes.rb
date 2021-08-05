@@ -10,8 +10,13 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :employees
+
   end
 
-  resources :employees
+  resources :employees do
+    member do
+      post 'add_project'
+    end
+  end
 
 end

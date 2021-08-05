@@ -17,8 +17,8 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    @division = Division.find(params[:division_id])
     @employee = Employee.find(params[:id])
+    @division = Division.find(@employee.division_id)
     @projects = Project.all
     render :show
   end
@@ -43,6 +43,15 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     @employee.destroy
     redirect_to division_path(@employee.division)
+  end
+
+  def add_project
+    @employee = Employee.find(params[:id])
+    @division = Division.find(@employee.division_id)
+    @projects = Project.all
+    @project = Project.find(params[:project_choice])
+    @project.employees << @employee
+    render :show
   end
 
   private
