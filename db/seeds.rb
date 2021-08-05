@@ -9,7 +9,10 @@
 Division.destroy_all
 
 5.times do |index|
-  Division.create!(name: Faker::Name.unique.name)
+  division = Division.create!(name: Faker::Name.unique.name)
+  5.times do |index|
+    Employee.create!(name: Faker::Name.unique.name, division_id: division.id)
+  end
 end
 
 p "Created #{Division.count} divisions"

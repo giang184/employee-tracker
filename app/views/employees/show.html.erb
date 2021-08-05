@@ -7,3 +7,33 @@
                                        :method => "delete"} %></p>
 
 <p><%= link_to "Return to division", division_path(@division) %></p>
+
+<h1>Projects</h1>
+
+  <% if @projects.any? %>
+    <ul>
+      <% @projects.each do |project| %>
+        <li><%= link_to project.name, project_path(project) %></li>
+      <% end %>
+    </ul>
+    <% else %>
+      <p>There are no projects yet.</p>
+    <% end %>
+  
+    <p><%= link_to "create new project", new_project_path %></p>
+
+
+
+
+  <% if @projects.any? %>
+  <label for="project_choice">Choose the projects:</label>
+  <select name="project_choice" id="project_choice">
+      <% @projects.each do |project| %>
+      
+        <option value=><%=project.name %></option>
+      <% end %>
+  </select>
+
+    <% else %>
+      <p>There are no projects to assign.</p>
+    <% end %>

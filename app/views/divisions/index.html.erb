@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-5">
+  <div class="col-sm-4">
 
     <h1>Divisions</h1>
     <% if @divisions.any? %>
@@ -15,7 +15,21 @@
     <p><%= link_to "create new division", new_division_path %></p>
 
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-4">
+
+  <h1>Employees</h1>
+  <% if @employees.any? %>
+  <ul>
+    <% @employees.each do |employee| %>
+      <li><%= link_to employee.name, division_employee_path(Division.find(employee.division_id), employee) %></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There are no employees yet.</p>
+  <% end %>
+
+  </div>
+  <div class="col-sm-4">
   
   <h1>Projects</h1>
 
