@@ -5,6 +5,7 @@ class Division < ApplicationRecord
 
   before_save(:titleize_division)
 
+  scope :ten_most_recent, -> { order(created_at: :desc).limit(2)}
   private
   def titleize_division
     self.name = self.name.titleize

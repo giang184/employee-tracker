@@ -2,6 +2,7 @@ class DivisionsController < ApplicationController
 
   def index
     @divisions = Division.all
+    @projects = Project.all
     render :index
   end
 
@@ -28,6 +29,11 @@ class DivisionsController < ApplicationController
   def show
     @division = Division.find(params[:id])
     render :show
+  end
+
+  def test
+    @divisions = Division.all
+    render :test
   end
 
   def update

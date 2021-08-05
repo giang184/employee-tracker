@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Division.destroy_all
+
+5.times do |index|
+  Division.create!(name: Faker::Name.unique.name)
+end
+
+p "Created #{Division.count} divisions"
